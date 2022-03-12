@@ -15,20 +15,14 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/torshepherd/reprdle",
-    author="Real Python",
-    author_email="info@realpython.com",
+    author="Tor Shepherd",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["reader"],
+    packages=["wordle"],
     include_package_data=True,
-    install_requires=["feedparser", "html2text"],
-    entry_points={
-        "console_scripts": [
-            "realpython=reader.__main__:main",
-        ]
-    },
+    install_requires=["colored"]
 )
