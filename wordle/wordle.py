@@ -1,4 +1,4 @@
-import itertools
+import pkg_resources
 import random
 from keyword import kwlist
 
@@ -10,6 +10,9 @@ _TOTAL_NUMBER_OF_GUESSES = 6
 _previous_guesses = []
 _current_guess_idx = 0
 _generated = False
+
+ANSWERS_PATH = pkg_resources.resource_filename("wordle", "wordle_answers.txt")
+ALLOWED_PATH = pkg_resources.resource_filename("wordle", "wordle_allowed.txt")
 
 
 class _Guess:
@@ -61,11 +64,11 @@ def _reset():
     _current_guess_idx = 0
     global _generated
     selected_answer = "error"
-    with open("wordle_answers.txt", "r") as f1:
+    with open(ANSWERS_PATH, "r") as f1:
         words = [w for w in f1.read().splitlines() if not w in _MODIFIED_KWLIST]
         selected_answer = random.choice(words)
 
-        with open("wordle_allowed.txt", "r") as f2:
+        with open(ALLOWED_PATH, "r") as f2:
             words += [w for w in f2.read().splitlines() if not w in _MODIFIED_KWLIST]
             nops = 0
             for word in words:

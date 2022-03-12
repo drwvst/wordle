@@ -7,10 +7,12 @@ HERE = pathlib.Path(__file__).parent
 # The text of the README file
 README = (HERE / "README.md").read_text()
 
+print("Found: ", find_packages())
+
 # This call to setup() does all the work
 setup(
     name="reprdle",
-    version="1.0.0",
+    version="1.2.0",
     description="Play wordle in the repl with the power of __repr__!",
     long_description=README,
     long_description_content_type="text/markdown",

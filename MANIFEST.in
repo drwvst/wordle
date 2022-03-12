@@ -1,1 +1,1 @@
-*.txt
+global-include *.txt *.png
